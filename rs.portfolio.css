@@ -1,0 +1,1210 @@
+/* ================================
+   BASE STYLESHEET — STARTING POINT
+   ================================ */
+
+/* ===== UNIVERSAL RESET ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== HTML & BODY HEIGHT RESET ===== */
+html, body {        
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #161616;
+}
+
+/* GLOBAL */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: transparent; /* let hero control background */
+}
+
+/* CONTAINERS */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* LINKS */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+/* IMAGES */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* HEADINGS */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* BUTTONS */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Contact button style */
+.nav-links a.btn-contact {
+  background-color: #ff7500;  /* orange */
+  color: white;               /* text color */
+  padding: 8px 20px;          /* button size */
+  transition: background 0.3s; /* smooth hover effect */
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center; /* vertically align all links */
+  gap: 20px;           /* horizontal spacing */
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: white;
+  padding: 8px 0;       /* same vertical space for all */
+  display: flex;
+  align-items: center;   /* vertical align text */
+  justify-content: center;
+}
+
+/* Hover and active effect */
+.nav-links a.btn-contact:hover,
+.nav-links a.btn-contact:active {
+  background-color: #e06600;  /* darker orange */
+}
+
+
+/* UTILITIES */
+.text-center {
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+
+
+
+
+
+
+/* ===== NAV BAR SECTION START ===== */
+
+
+
+
+
+/* ===== NAVBAR ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 0;
+  background: rgb(0, 0, 0, 0); /* transparent by default */
+  transition: background 0.3s ease; /* smooth transition */
+  z-index: 5000;
+}
+
+header.sticking {
+  background: rgb(22, 22, 22);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: sticky;
+}
+
+/* Burger + MENU text */
+.burger {
+  position: relative;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+}
+
+.menu-text {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Logo centered */
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.logo img {
+  height: 70px; /* Resize image */
+  width: auto;
+}
+
+/* Nav links */
+.nav-links {
+  position: relative;
+  right: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover {
+  opacity: 0.7;
+}
+
+/* Large screens: more spacing */
+@media (min-width: 1200px) {
+  .burger { left: 325px; }
+  .nav-links { right: 325px; }
+}
+
+
+
+
+
+/* ===== NAV BAR SECTION END===== */
+
+
+
+
+
+
+
+/*============= HERO SECTION START =============*/
+
+
+
+
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100%; /* full viewport minus navbar */
+  background-color: transparent; /* no black block */
+  overflow: hidden;
+}
+
+/* HERO SLIDES */
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* relative to .hero */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  overflow: hidden;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* align top */
+  display: block;
+}
+
+
+/* Indicators container */
+.hero-indicators {
+  position: absolute;
+  bottom: 170px;       /* distance from bottom */
+  right: 200px;        /* distance from right */
+  display: flex;       /* horizontal layout */
+  align-items: center; /* vertical center with pause button */
+  gap: 30px;           /* space between lines */
+  z-index: 100;       /* always on top */
+  pointer-events: auto; 
+}
+
+/* Each indicator line */
+.hero-indicator {
+  width: 90px;               /* line width */
+  height: 2px;               /* line height */
+  background: white;         /* white by default */
+  opacity: 0.5;              /* semi-transparent by default */
+  cursor: pointer;
+  transition: opacity 0.3s;  /* smooth fade effect */
+}
+
+.hero-indicator.active {
+  opacity: 1;;
+}
+
+.hero-indicator:hover {
+  background: #fff;
+}
+
+/* Pause button SVG wrapper */
+.hero-pause {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Hover or active: semi-transparent */
+.hero-pause:hover,
+.hero-pause:active {
+  opacity: 0.5; /* hexagon and icon become semi-transparent */
+}
+
+/* Paused state: grow slightly */
+.hero-pause.paused {
+  transform: scale(1.3);
+}
+
+/* Keep hexagon stroke always white */
+.hero-pause .hexagon {
+  fill: none;
+  stroke: white;
+  stroke-width: 3;
+}
+
+/* Pause icon visible by default */
+.hero-pause .icon-pause {
+  display: block;
+  transform: scale(0.6);     /* make pause bars smaller inside hexagon */
+  transform-origin: center;
+}
+
+/* Play icon hidden by default */
+.hero-pause .icon-play {
+  display: none;
+  transform: scale(0.5);     /* make play triangle smaller inside hexagon */
+  transform-origin: center;
+}
+
+/* Hover or active: semi-transparent */
+.hero-pause:hover,
+.hero-pause:active {
+  opacity: 0.5;
+}
+
+/* Paused state: scale up entire SVG including icons */
+.hero-pause.paused {
+  transform: scale(1.3);     /* scales hexagon + icon together */
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+
+
+/* ===== HERO VIGNETTE ===== */
+.hero-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* covers full hero block */
+  pointer-events: none;
+  z-index: 50;
+
+  /* Single gradient covering both top and bottom */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,       /* fully black at very top */
+    rgba(0,0,0,0) 35%,      /* fade to transparent */
+    rgba(0,0,0,0) 65%,      /* stay transparent through middle */
+    rgba(0,0,0,1) 100%      /* fully black at bottom */
+  );
+}
+
+
+.hero-text {
+  position: absolute;
+  bottom: 120px;       /* 100px from bottom */
+  left: 0;             /* start off screen */
+  transform: translateX(-100vw); /* start completely off-screen to the left */
+  padding-left: 200px; /* final spacing from left */
+  color: white;
+  z-index: 100;          /* above slides */
+  opacity: 0;          /* start hidden */
+  transition: transform 2s ease-out, opacity 1s ease-out;
+}
+
+.hero-text h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; 
+  letter-spacing: 0;
+  font-size: 35px;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* x-offset, y-offset, blur, color */
+}
+
+.hero-text p {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+  font-size: 71px;
+  margin: 20 0 0 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* x-offset, y-offset, blur, color */
+}
+
+/* Animate when page loads */
+.hero-text.show {
+  transform: translateX(0); /* slide to final position */
+  opacity: 1;
+}
+
+
+
+
+
+
+/*============= HERO SECTION END =============*/ 
+
+
+
+
+
+/*============= PROJECT SECTION START =============*/
+
+
+
+#projects-carousel {
+  background-color: white;
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.swiper-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: auto;
+  top: 50%;
+}
+
+.swiper-wrapper {
+  position: relative;
+}
+
+.swiper-slide {
+  width: 50%;
+  position: relative;
+}
+
+/*────────────────────────────────────────────
+  TOP BAR
+────────────────────────────────────────────*/
+
+/* Top bar above projects slider */
+.projects-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 200px; /* <--- tweak this number to push the bar down */
+}
+
+/* Heading (left side) */
+.projects-title {
+  font-family: "Anton", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #292929;
+  padding-left: 322px;
+}
+
+/* Top button (right side) */
+.projects-top-btn {
+  padding: 30px 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #292929;
+  border-bottom: 1px solid #292929;
+  text-decoration: none;
+  transition: background .25s ease, color .25s ease;
+  margin-right: 322px;
+}
+
+.projects-top-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/*────────────────────────────────────────────
+  SWIPER HEADER
+────────────────────────────────────────────*/
+
+.slide-header {
+  position: absolute;
+  bottom: 100%;          /* places it above the slide image */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column; /* stack logo on top of text */
+  align-items: center;
+  gap: 5px;              /* space between logo and header text */
+  margin-bottom: 35px;    /* space between header+logo and slide */
+  z-index: 10;
+  opacity: 0;             /* fade-in animation */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Show header only on active slide */
+.swiper-slide-active .slide-header {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.slide-logo {
+  height: 40px;           /* adjust size */
+  width: auto;
+}
+
+/* Header text styling */
+.slide-header span,
+.slide-header {
+  font-family: 'OSwald', sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  text-align: center;
+  color: #292929;            /* black header text */
+}
+
+img[alt="Logo 2"] {
+  height: 45px;
+}
+
+img[alt="Logo 3"] {
+  height: 55px;
+}
+
+/*────────────────────────────────────────────
+  Overlay only over the IMAGE
+  (uses .slide-image-wrapper instead of .slide-inner)
+────────────────────────────────────────────*/
+
+/* Left side (fade from solid white → transparent) */
+.swiper-slide-prev .slide-image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,1) 25%,
+    rgba(255,255,255,0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* Right side (fade from solid white → transparent) */
+.swiper-slide-next .slide-image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to left,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,1) 25%,
+    rgba(255,255,255,0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 50;
+}
+
+.slide-image-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+/*────────────────────────────────────────────
+  Slide content
+────────────────────────────────────────────*/
+.carousel-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.carousel-title {
+  margin-top: 1rem;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.carousel-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 50%;         /* match swiper-slide width */
+  margin: 20px auto 0;    /* top margin + horizontally center container */
+  text-align: left;        /* text inside starts from left */
+  align-items: flex-start; /* align children to left edge of container */
+  position: relative;      
+  z-index: 100;            
+  gap: 50px;               /* space between button and description */
+}
+
+.carousel-btn {
+  width: auto;
+  align-self: center;
+  position: relative;
+  z-index: 100;
+  display: inline-block;
+  margin-top: 20px;
+  padding: 20px 40px; /* increased from 12px 24px to make button bigger */
+  background-color: #7a6c2d;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px; /* keep your original text size */
+  transition: background-color 0.25s, transform 0.25s;
+}
+
+.carousel-btn:hover {
+  z-index: 200;
+  background-color: #1f1900;
+}
+
+.slide-description {
+  font-family: Roboto;
+  max-width: 1000px;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/*────────────────────────────────────────────
+  Arrows
+────────────────────────────────────────────*/
+.lam-carousel__control {
+  position: absolute;
+  top: -80px;
+  transform: scale(1.5);
+  z-index: 200;
+  cursor: pointer;
+}
+
+.lam-carousel__control svg {
+  transform-origin: center;
+}
+
+.lam-carousel__control svg polygon,
+.lam-carousel__control svg polyline {
+  stroke: black;
+  stroke-width: 2px;
+  transition: stroke 0.3s ease;
+}
+
+.lam-carousel__control:hover svg polygon,
+.lam-carousel__control:hover svg polyline {
+  stroke: rgb(59, 59, 59);
+}
+
+.lam-carousel__control:hover svg {
+  transform: scale(1.05);
+  stroke-width: 1px;
+}
+
+.lam-carousel__control--prev { left: 330px; }
+.lam-carousel__control--next { right: 330px; }
+
+
+
+
+
+
+
+
+/*============= PROJECT SECTION END =============*/
+
+
+
+
+
+
+/*============= COUSE SECTION START =============*/
+
+
+
+
+
+#course-section {
+  width: 100%;
+  height: 33vh;
+  background-image: url("Media/Pictures/photo_2025-07-10_09-05-32.jpg");
+  background-size: cover;      /* fills the whole section */
+  background-position: center; /* cuts equally from top and bottom */
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.9);  /* dark overlay */
+  z-index: 1;
+}
+
+/* bring the content above the overlay */
+.course-wrapper {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.course-section {
+  position: relative;
+  width: 100%;
+  height: 33vh;                /* one-third of the viewport height */
+  background: #f4f4f4;         /* light background so it feels like a new page */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-wrapper {
+  max-width: 800px;
+  text-align: center;
+}
+
+.course-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.course-text {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.course-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #000;
+  text-decoration: none;
+  color: #000;
+  transition: background .25s ease, color .25s ease;
+}
+
+.course-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+
+
+
+
+/*============= COUSE SECTION END =============*/
+
+
+
+
+
+/*============= RECENT ORDERS SECTION START =============*/
+
+
+
+
+
+/* Section setup */
+#recent-orders {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: Arial, sans-serif;
+  color: white;
+  padding-bottom: 60px; /* space at the bottom */
+}
+
+/* Title */
+#recent-orders .title {
+  font-family: "Anton", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  margin: 40px 0;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  pointer-events: none;
+}
+
+/* Grid layout */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  width: 90%;
+  max-width: 1200px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Card style */
+.order-card {
+  position: relative; /* keep each card as positioning context */
+  cursor: pointer;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, border 0.5s ease;
+  z-index: 1;
+}
+
+/* Image zoom */
+.order-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  transition: transform 1s ease; /* smooth zoom */
+  max-height: 70vh; /* make images smaller than viewport */
+  object-fit: cover;
+}
+
+.order-card:hover img {
+  transform: scale(1.03); /* subtle zoom */
+  cursor: pointer;
+}
+
+/* Image caption */
+.order-name {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: 500;
+  color: white; /* pure text, no shadow or background */
+  text-align: center;
+  pointer-events: none; /* doesn’t block hover */
+}
+
+.order-name::after {
+  content: "";
+  display: block;
+  width: 70%;         /* thin short line */
+  height: 1px;        /* thickness */
+  background-color: white;
+  margin: 4px auto 0; /* spacing above line */
+  transition: width 1s cubic-bezier(0.25, 1, 0.5, 1); /* smooth elastic feel */
+}
+
+.order-card:hover .order-name::after {
+  width: 100%; /* line stretches longer on hover */
+}
+
+/* Enlarged image wrapper */
+.lightbox-content {
+  position: relative;
+  max-width: 80vw;   /* smaller width */
+  max-height: 80vh;  /* smaller height */
+  overflow: hidden;  /* keep shine inside */
+  border-radius: 8px; /* round ALL corners */
+  z-index: 10000; /* above backdrop */
+}
+
+.lightbox-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* softer than full black */
+  backdrop-filter: blur(12px);     /* blur background */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  z-index: 9990;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;           /* start invisible */
+  transition: opacity 0.5s ease; /* smooth fade */
+}
+
+.lightbox-content img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 40px rgba(255,255,255,0.2); /* subtle glow */
+}
+
+.lightbox-backdrop.active {
+  display: flex;
+  opacity: 1; /* fade in */
+}
+
+/* Shine layer */
+.lightbox-content::after {
+  content: "";
+  position: absolute;
+  top: -50%;   /* shift up */
+  left: -60%;
+  width: 200%; /* extra wide so diagonal covers */
+  height: 200%; /* extra tall */
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 45%,
+    rgba(255,255,255,0.2) 48%,
+    rgba(255,255,255,0) 51%
+  );
+
+  /* equilateral triangle mask (single-triangle tile repeated) */
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='26' viewBox='0 0 30 26'><g stroke='white' stroke-width='2' fill='none'><polygon points='15,0 30,26 0,26'/></g></svg>");
+  -webkit-mask-repeat: repeat;
+  -webkit-mask-size: 20px 16px;
+
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='26' viewBox='0 0 30 26'><g stroke='white' stroke-width='2' fill='none'><polygon points='15,0 30,26 0,26'/></g></svg>");
+  mask-repeat: repeat;
+  mask-size: 20px 16px;
+
+  animation: shine 7s infinite linear;
+  animation-timing-function: ease-in-out;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Backdrop */
+.lightbox-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 9990;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-backdrop.active {
+  display: flex;
+}
+
+/* Disable scroll when open */
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Spotlight overlay */
+.orders-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  --x: -500px; 
+  --y: -500px;
+
+  background:
+    radial-gradient(
+      circle 200px at var(--x) var(--y),
+      transparent 0%,
+      rgba(22,22,22,0.9) 80%,
+      rgb(22,22,22) 100%
+    ),
+    url("Media/Pictures/Recent Orders BG Picture RGB.jpg") no-repeat center/cover;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .orders-grid {
+    grid-template-columns: 1fr; /* stack on mobile */
+    gap: 15px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .orders-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+}
+
+
+
+
+
+
+
+
+/*============= RECENT ORDERS SECTION END =============*/
+
+
+
+
+
+/*============= TOOLS SECTION START =============*/
+
+
+
+
+/* Section wrapper */
+#icons {
+  position: relative;             /* anchor glow line */
+  background: rgb(22, 22, 22);    /* dark background */
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;                      /* space between sliders */
+}
+
+/* Glowing animated line at top of section */
+#icons::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px; /* thin line */
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(180,180,180,1) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 200% 100%; /* needed for animation */
+  animation: glow-move 5s linear infinite;
+  z-index: 10;
+}
+
+#icons::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(180,180,180,1) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: glow-move 5s linear infinite;
+  z-index: 10;
+}
+
+@keyframes glow-move {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* White static slider box */
+.icons-slide {
+  position: relative;
+  width: 100%;
+  padding: 12px 0;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  overflow: hidden; /* keep logos + gradients inside */
+}
+
+/* Moving row of logos */
+.icons-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.icons-slide.reverse .icons-track {
+  animation: scroll-right 30s linear infinite;
+}
+
+/* Gradient fade edges on each slider */
+.icons-slide::before,
+.icons-slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 150px; /* fade width */
+  z-index: 2;
+  pointer-events: none;
+}
+
+.icons-slide::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.9) 0%,
+    rgba(255,255,255,0) 100%
+  );
+}
+
+.icons-slide::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(255,255,255,0.9) 0%,
+    rgba(255,255,255,0) 100%
+  );
+}
+
+/* Logo styling */
+.icons-track img {
+  flex: 0 0 calc(100vw / 7); /* exactly 7 logos per viewport */
+  height: 70px;
+  object-fit: contain;
+}
+
+/* Animations for scrolling */
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+
+
+
+
+
+
+
+
+
+
+/*============= TOOLS SECTION END =============*/
+
+
+
+
+
+/* ===== FOOTER SECTION START===== */
+
+
+
+
+
+#footer {
+  background: #111;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.footer-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #aaa;
+}
+
+.footer-contacts p {
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.footer-socials {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-socials img {
+  width: 30px;
+  transition: transform 0.3s;
+}
+
+.footer-socials img:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #777;
+}
+
+
+
+
+
+
+/* ===== FOOTER SECTION END===== */

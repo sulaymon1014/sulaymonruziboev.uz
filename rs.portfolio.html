@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Index</title>
+
+  <!-- OPTIONAL: small metadata -->
+  <meta name="description" content="Minimal HTML starter file">
+  <meta name="author" content="Your Name">
+
+  <!-- Optional inline CSS placeholder (remove if you don't want any) -->
+  <style>
+    /* Minimal default styles so page isn't totally raw */
+    html,body{
+      height:100%;
+      font-family:system-ui,Segoe UI,Roboto,Arial;
+    }
+    body {
+      background-color: black; /* fallback */
+      font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      color: white;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Google Font: Anton -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <!-- Google Font: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="rs.portfolio.css">
+
+</head>
+<body>
+
+
+
+
+
+  <!-- ===== NAV BAR SECTION START ===== -->
+
+
+
+
+
+<header>
+  <nav>
+    <div class="burger">
+      <span class="burger-icon">&#9776;</span>
+      <span class="menu-text">MENU</span>
+    </div>
+
+      <a href="index.html" class="logo">
+        <img src="Media/Logos/SULAYMON PROFILE PIC PNG.png" alt="Your Logo">
+      </a>
+
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="btn-contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+
+
+
+  <!-- ===== NAV BAR SECTION END ===== -->
+
+
+
+
+
+
+  <!-- ===== HERO PRESENTATION SECTION START ===== -->
+
+
+
+
+  
+  <section class="hero">
+
+    <div class="hero-text">
+      <h1>WELCOME TO PORTFOLIO OF</h1>
+      <p>SULAYMON RUZIBOEV</p>
+    </div>
+
+
+    <div class="hero-slide">
+      <img src="Media/Pictures/Code Master v0.2 with C.jpg" alt="Slide 1">
+    </div>
+    <div class="hero-slide">
+      <img src="media/Pictures/photo_2025-07-10_09-05-32.jpg" autoplay muted loop></img>
+    </div>
+    <div class="hero-slide">
+      <img src="Media/Pictures/WolfGang2.jpg" alt="Slide 3">
+    </div>
+    <!-- Vignette -->
+    <div class="hero-vignette"></div>
+      
+    <!-- Indicators -->
+    <div class="hero-indicators">
+      <span class="hero-indicator active"></span>
+      <span class="hero-indicator"></span>
+      <span class="hero-indicator"></span>
+
+      <!-- ===== HERO PAUSE BUTTON ===== -->
+      <svg class="hero-pause" width="35" height="35" viewBox="0 0 100 100">
+        <!-- Rotated hexagon -->
+        <polygon class="hexagon" points="50,0 93,25 93,75 50,100 7,75 7,25"
+                fill="none" stroke="white" stroke-width="5"/>
+        
+        <!-- Pause icon (two thin bars) -->
+        <g class="icon-pause">
+          <rect x="35" y="25" width="3" height="50" fill="white"/>
+          <rect x="57" y="25" width="3" height="50" fill="white"/>
+        </g>
+        
+        <!-- Play icon (triangle outline only) -->
+        <polygon class="icon-play" points="40,25 70,50 40,75"
+                fill="none" stroke="white" stroke-width="3" style="display:none"/>
+      </svg>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- ===== HERO PRESENTATION SECTION END ===== -->
+
+  
+  
+  
+  
+  
+  <!-- ===== PROJECTS SECTION START ===== -->
+
+
+
+
+  <section id="projects-carousel" class="projects-section">
+
+    <div class="projects-top-bar">
+      <h2 class="projects-title">PROJECTS</h2>
+      <a href="#" class="projects-top-btn">DISCOVER ALL PROJECTS</a>
+    </div>
+
+    <div class="swiper-container">
+
+      <!-- ===== Skip Buttons ===== -->
+
+      <button class="lam-carousel__control lam-carousel__control--prev">
+        <svg width="35" height="35" viewBox="0 0 100 100">
+          <!-- Hexagon background -->
+          <polygon points="50,0 93,25 93,75 50,100 7,75 7,25"
+                  fill="none" stroke="black" stroke-width="5"/>
+          <!-- Left arrow -->
+          <polyline points="60,25 40,50 60,75"
+                    fill="none" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <button class="lam-carousel__control lam-carousel__control--next">
+        <svg width="35" height="35" viewBox="0 0 100 100">
+          <!-- Hexagon background -->
+          <polygon points="50,0 93,25 93,75 50,100 7,75 7,25"
+                  fill="none" stroke="black" stroke-width="5"/>
+          <!-- Right arrow -->
+          <polyline points="40,25 60,50 40,75"
+                    fill="none" stroke="black" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="slide-header">
+            <img src="Media/Logos/YT.png" alt="Logo 1" class="slide-logo">
+            BANNERS, LOGOS, THUMBNAILS
+          </div>
+          <div class="slide-image-wrapper">
+            <img src="Media/Pictures/Nematov Ai v1.2.jpg" alt="Project One" class="carousel-image" />
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="slide-header">
+            <img src="Media/Logos/IG.png" alt="Logo 2" class="slide-logo">
+            COVERS, LOGOS, ADs
+          </div>
+          <div class="slide-image-wrapper">
+            <img src="Media/Pictures/photo_2025-07-10_09-05-32.jpg" alt="Project Two" class="carousel-image" />
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="slide-header">
+            <img src="Media/Logos/SULAYMON PROFILE PIC BLACK PNG.png" alt="Logo 3" class="slide-logo">
+            SOLELY LOGOS
+          </div>
+          <div class="slide-image-wrapper">
+            <img src="Media/Pictures/WolfGang2.jpg" alt="Project Three" class="carousel-image" />
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="slide-header">
+            <img src="Media/Logos/IG.png" alt="Logo 4" class="slide-logo">
+            COVERS, LOGOS, ADs
+          </div>
+          <div class="slide-image-wrapper">
+            <img src="Media/Pictures/Code Master v0.2 with C.jpg" alt="Project Four" class="carousel-image" />
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="swiper-slide">
+          <div class="slide-header">
+            <img src="Media/Logos/IG.png" alt="Logo 5" class="slide-logo">
+            COVERS, LOGOS, ADs
+          </div>
+          <div class="slide-image-wrapper">
+            <img src="Media/Pictures/SpeedScope.jpg" alt="Project Five" class="carousel-image" />
+          </div>
+        </div>
+      </div>
+
+      <!-- SINGLE BUTTON OUTSIDE SWIPER WRAPPER -->
+      <div class="carousel-content">
+        <a href="#" class="carousel-btn">EXPLORE MORE</a>
+        <p class="slide-description" id="slide-description">
+          A collection of our YouTube design work — including banners, thumbnails and logo concepts 
+          created for various content creators and streamers.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ===== PROJECTS SECTION END ===== -->
+
+
+
+
+
+  <!-- === COURSE SECTION START === 
+
+
+
+
+  
+  <section id="course-section" class="course-section">
+    <div class="course-wrapper">
+      <h2 class="course-title">Join My Graphic Design Course</h2>
+      <p class="course-text">
+        Learn the fundamentals of design, branding and modern web aesthetics
+        with real-world examples and step-by-step lessons.
+      </p>
+      <a href="#" class="course-btn">Learn More</a>
+    </div>
+  </section>
+
+
+
+
+
+  === COURSE SECTION START === -->
+
+
+
+
+
+
+  <!-- === RECENT ORDERS SECTION START === -->
+
+
+
+
+
+
+  <section id="recent-orders" class="full-screen">
+    <h1 class="title">RECENT ORDERS</h1>
+
+    <div class="orders-grid">
+      <div class="order-card">
+        <img src="Media/Pictures/Code Master v0.2 with C.jpg" alt="Order 1">
+        <div class="order-name">Code Master v0.2</div>
+      </div>
+      <div class="order-card">
+        <img src="Media/Pictures/Nematov Ai v1.2.jpg" alt="Order 2">
+        <div class="order-name">Nematov AI v1.2</div>
+      </div>
+      <div class="order-card">
+        <img src="Media/Pictures/photo_2025-07-10_09-05-32.jpg" alt="Order 3">
+        <div class="order-name">Special Photo</div>
+      </div>
+      <div class="order-card">
+        <img src="Media/Pictures/SpeedScope.jpg" alt="Order 4">
+        <div class="order-name">SpeedScope</div>
+      </div>
+      <div class="order-card">
+        <img src="Media/Pictures/WolfGang2.jpg" alt="Order 5">
+        <div class="order-name">WolfGang 2</div>
+      </div>
+    </div>
+
+    <!-- Spotlight overlay -->
+    <div class="orders-spotlight"></div>
+  </section>
+
+
+
+
+
+
+
+
+  <!-- === RECENT ORDERS SECTION END === -->
+
+
+
+
+
+  <!-- === TOOLS SECTION START === -->
+
+
+
+
+
+  <section id="icons">
+    <!-- Row 1 -->
+    <div class="icons-slide">
+      <div class="icons-track">
+        <img src="Media/Icons/photoshop-svg.svg" alt="Photoshop">
+        <img src="Media/Icons/illustrator-svg.svg" alt="Illustrator">
+        <img src="Media/Icons/behance-svg.svg" alt="Behance">
+        <img src="Media/Icons/pinterest-svg.svg" alt="Pinterest">
+        <img src="Media/Icons/unsplash-svg.svg" alt="Unsplash">
+        <img src="Media/Icons/chatgpt-svg.svg" alt="ChatGPT">
+        <img src="Media/Icons/aftereffects-svg.svg" alt="After Effects">
+
+        <!-- duplicate for seamless scroll -->
+        <img src="Media/Icons/photoshop-svg.svg" alt="Photoshop">
+        <img src="Media/Icons/illustrator-svg.svg" alt="Illustrator">
+        <img src="Media/Icons/behance-svg.svg" alt="Behance">
+        <img src="Media/Icons/pinterest-svg.svg" alt="Pinterest">
+        <img src="Media/Icons/unsplash-svg.svg" alt="Unsplash">
+        <img src="Media/Icons/chatgpt-svg.svg" alt="ChatGPT">
+        <img src="Media/Icons/aftereffects-svg.svg" alt="After Effects">
+      </div>
+    </div>
+
+    <!-- Row 2 (reverse direction) -->
+    <div class="icons-slide reverse">
+      <div class="icons-track">
+        <img src="Media/Icons/photoshop-svg.svg" alt="Photoshop">
+        <img src="Media/Icons/illustrator-svg.svg" alt="Illustrator">
+        <img src="Media/Icons/behance-svg.svg" alt="Behance">
+        <img src="Media/Icons/pinterest-svg.svg" alt="Pinterest">
+        <img src="Media/Icons/unsplash-svg.svg" alt="Unsplash">
+        <img src="Media/Icons/chatgpt-svg.svg" alt="ChatGPT">
+        <img src="Media/Icons/aftereffects-svg.svg" alt="After Effects">
+
+        <!-- duplicate for seamless scroll -->
+        <img src="Media/Icons/photoshop-svg.svg" alt="Photoshop">
+        <img src="Media/Icons/illustrator-svg.svg" alt="Illustrator">
+        <img src="Media/Icons/behance-svg.svg" alt="Behance">
+        <img src="Media/Icons/pinterest-svg.svg" alt="Pinterest">
+        <img src="Media/Icons/unsplash-svg.svg" alt="Unsplash">
+        <img src="Media/Icons/chatgpt-svg.svg" alt="ChatGPT">
+        <img src="Media/Icons/aftereffects-svg.svg" alt="After Effects">
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- === TOOLS SECTION END === -->
+
+
+
+
+
+
+  <!-- ===== FINAL PAGE / FOOTER SECTION START===== -->
+
+
+
+
+
+  <footer id="footer">
+    <div class="footer-wrapper">
+      <h2 class="footer-title">Let’s create something amazing together</h2>
+      <p class="footer-text">Available for freelance, collaborations, and new opportunities.</p>
+
+      <div class="footer-contacts">
+        <p>Email: <a href="mailto:your@gmail.com">sulaymonruziboev75@gmail.com</a></p>
+        <p>Phone: +998 94 314 55 77</p>
+        <p>Location: Samarkand, Uzbekistan</p>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/rsu.designs/"><img src="Media/Icons/instagram-png.png" alt="Instagram"></a>
+        <a href="https://www.behance.net/sulaymoruziboe"><img src="Media/Icons/behance-svg-wht.svg" alt="Behance"></a>
+        <a href="https://t.me/rsu_designer"><img src="Media/Icons/telegram-svg.svg" alt="Telegram"></a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Sulaymon Ruziboev. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  <!-- ===== FINAL PAGE / FOOTER SECTION END===== -->
+
+
+
+
+
+  <!-- Optional JS placeholder -->
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script src="rs.portfolio.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
